@@ -41,7 +41,12 @@ module.exports = {
     i.use=['url-loader']
   })
 
+  result.resolve
+    .alias[require.resolve(
+      '../../app/javascript/legacy_react/src/lib/api/sign_in.ts')] = require.resolve(
+        '../../app/javascript/legacy_react/src/lib/api/__mocks__/sign_in.ts')
 
-  return result;
+
+  return result
 },
 };
