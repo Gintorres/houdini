@@ -275,19 +275,6 @@ function SignInComponent(props: SignInComponentProps): JSX.Element {
 										{componentState === 'success' ?
 											<p>Success</p> :null}
 									</Box>
-
-									{/* Forgot password link */}
-									<Box display="flex" justifyContent="center" alignItems="center">
-										<Link
-											component="button"
-											variant="body2"
-											onClick={() => {
-												console.info("I'm a button.");
-											}}
-										>
-											Forgot Password
-										</Link>
-									</Box>
 								</Grid>
 							</Grid>
 						</Paper>
