@@ -14,10 +14,16 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import CopyrightIcon from '@material-ui/icons/Copyright';
 import logo from './Images/HoudiniLogo.png';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 
 
 
 import SignInComponent from "./SignInComponent";
+import { Paper } from "@material-ui/core";
 
 // NOTE: You should remove this line and next when you start adding properties to SignInComponentProps
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -55,8 +61,8 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
        },
        logo:{
         alignItems:'center',
-        width: 250,
-        height: 75,
+        width: 275,
+        height: 70,
         display:"flex",
         justifyContent:"center",
         
@@ -65,7 +71,21 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
         display:"flex",
          justifyContent:"center",
         alignItems:"center",
-       }
+        textAlign: "center",
+       },
+       media: {
+        height: 75,
+      },
+      card: {
+      
+        
+      },
+      paper: {
+        maxWidth: 325,
+        margin: `${theme.spacing(1)}px auto`,
+        padding: theme.spacing(2),
+        borderRadius: 15,
+      },
 		}),
 		);
 
@@ -77,45 +97,60 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
 		<Grid container spacing={5}>
 			<Grid item xs={12}>
       <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" color="primary">
             <Toolbar >
-            <img 
-                className={classes.logo}
-                src={logo}
-                title="Houdini"
-							/>
-              <Box p={5}>
+              <Box p={3}>
                 <Typography 
                   variant="h5"
                   className={classes.title}
                   >
-                  Sign In Page
+                  <Box letterSpacing={2} fontWeight="fontWeightBold">
+                    SIGN IN PAGE
+                  </Box>
                 </Typography>
               </Box>
             </Toolbar>
             </AppBar>
           </div>
 			</Grid>
-      <Grid item xs={12} className={classes.text}>
-        <Typography variant="h4"  gutterBottom>
-          Welcome!
-        </Typography>
-      </Grid>
-			<Grid item xs={12}>
-        <SignInComponent onFailure={onFailure}/>
-				<Box color="error.main" data-testid="signInPageError">{error ? "Ermahgerd! We had an error!" : ""}</Box>
-			</Grid>
-      <Grid item xs={10}>
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <Link
-            component="button"
-            variant="body2"
-            onClick={() => {
-                console.info("I'm a button.");
-            }}>
-            Forgot Password
-          </Link>
-        </Box>
+     <Grid container spacing={0}>
+      <Grid container
+            xs={6} 
+            justify="flex-end">
+
+          <Paper className={classes.paper} elevation={6}>
+            <CardMedia
+                      className={classes.media}
+                      component="img"
+                      src={logo}
+                      title="Houdini"
+                  
+                    />
+            <Typography variant="h4" className={classes.text} >
+              <Box letterSpacing={3} fontWeight="fontWeightBold " >
+                <br/> Welcome! <br />
+              </Box>
+            </Typography>
+            <Typography className={classes.text} >
+              <Box  >
+              <br /> Please Login to countinue or select the following options below. <br />
+              </Box>
+            </Typography>
+              <CardActions>
+                    <Button size="large" color="primary">
+                      Forgot Password
+                    </Button>
+                    <Button size="large" color="primary">
+                      Get Started
+                    </Button>
+              </CardActions>
+          </Paper>
+        </Grid>
+
+        <Grid container xs={5} justify="flex-start">
+          <SignInComponent onFailure={onFailure}/>
+          <Box color="error.main" data-testid="signInPageError">{error ? "Ermahgerd! We had an error!" : ""}</Box>
+        </Grid>
       </Grid>
       <Grid item xs={12} >
               <AppBar position="static">
@@ -132,9 +167,6 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
         
         </Grid>
 		</Grid>
-	
-
-		
 			
 		
 		

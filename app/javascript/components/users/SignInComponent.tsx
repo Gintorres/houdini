@@ -15,6 +15,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { green } from '@material-ui/core/colors';
 import { blue } from '@material-ui/core/colors';
 import clsx from 'clsx';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 import { Link } from '@material-ui/core';
@@ -104,7 +105,7 @@ function SignInComponent(props: SignInComponentProps): JSX.Element {
 			},
 		},
 		paper: {
-			maxWidth: 400,
+			maxWidth: 325,
 			margin: `${theme.spacing(1)}px auto`,
 			padding: theme.spacing(2),
 			borderRadius: 15,
@@ -188,11 +189,20 @@ function SignInComponent(props: SignInComponentProps): JSX.Element {
 									justify="center"
 								>
 									{/* Display HoudiniLogo */}
-									<CardMedia component="img"
-										src={logo}
-										title="Houdini"
+									<CardMedia 
+									
 									/>
+									<Grid container
+												alignItems="center"
+												justify="center">
+									<AccountCircleIcon fontSize="large" />
+									</Grid>
 									{/* Display Login title */}
+
+									<Grid container
+												alignItems="center"
+												justify="center"
+												>
 									<Box p={3} display="flex" justifyContent="center" alignItems="center">
 										<Typography gutterBottom variant="h5" component="h2">
 											Login
@@ -275,6 +285,7 @@ function SignInComponent(props: SignInComponentProps): JSX.Element {
 										{componentState === 'success' ?
 											<p>Success</p> :null}
 									</Box>
+									</Grid>
 								</Grid>
 							</Grid>
 						</Paper>
