@@ -61,9 +61,9 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
        },
        logo:{
         alignItems:'center',
-        width: 275,
-        height: 70,
-        display:"flex",
+        width: 150,
+        height: 75,
+  
         justifyContent:"center",
         
        },
@@ -94,7 +94,7 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
 
 
 	return (
-		<Grid container spacing={5}>
+		<Grid container spacing={0}>
 			<Grid item xs={12}>
       <div className={classes.root}>
             <AppBar position="static" color="primary">
@@ -114,26 +114,30 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
           </div>
 			</Grid>
      <Grid container spacing={0}>
+       <Grid item xs={12}>
+        <CardMedia
+          className={classes.media}
+          component="img"
+          src={logo}
+          title="Houdini"
+                      
+        />
+      </Grid>
       <Grid container
             xs={6} 
-            justify="flex-end">
+            justify="center">
 
-          <Paper className={classes.paper} elevation={6}>
-            <CardMedia
-                      className={classes.media}
-                      component="img"
-                      src={logo}
-                      title="Houdini"
-                  
-                    />
-            <Typography variant="h4" className={classes.text} >
-              <Box letterSpacing={3} fontWeight="fontWeightBold " >
-                <br/> Welcome! <br />
-              </Box>
-            </Typography>
+          {/* <Paper className={classes.paper} elevation={6}> */}
+            <Grid item xs={6}>
+              <Typography variant="h4" className={classes.text} >
+                <Box letterSpacing={3} fontWeight="fontWeightBold " >
+                  Welcome! 
+                </Box>
+              </Typography>
+            </Grid>
             <Typography className={classes.text} >
-              <Box  >
-              <br /> Please Login to countinue or select the following options below. <br />
+              <Box>
+              Please Login to countinue or select the following options below.
               </Box>
             </Typography>
               <CardActions>
@@ -144,7 +148,7 @@ function SignInPage(_props:SignInPageProps) : JSX.Element {
                       Get Started
                     </Button>
               </CardActions>
-          </Paper>
+          {/* </Paper> */}
         </Grid>
 
         <Grid container xs={5} justify="flex-start">
